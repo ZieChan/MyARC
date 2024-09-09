@@ -1,0 +1,51 @@
+{
+    "1": {
+      "instruction": "You are a robot good at solving few-shot learning problems. You will be given a question. 3 examples in \"train\". Each example consists of \"input\" and \"output\". For example, \"input\": [[0, 7, 7], [7, 7, 7], [0, 7, 7]], \"output\": [[0, 0, 0, 0, 7, 7, 0, 7, 7], [0, 0, 0, 7, 7, 7, 7, 7, 7], [0, 0, 0, 0, 7, 7, 0, 7, 7], [0, 7, 7, 0, 7, 7, 0, 7, 7], [7, 7, 7, 7, 7, 7, 7, 7, 7], [0, 7, 7, 0, 7, 7, 0, 7, 7], [0, 0, 0, 0, 7, 7, 0, 7, 7], [0, 0, 0, 7, 7, 7, 7, 7, 7], [0, 0, 0, 0, 7, 7, 0, 7, 7]]} is one example. You need to find the rule of getting \"output\" from \"input\" from these 3 examples. And I'll give you a problem called \"test,\" which only contains \"input\". You need to calculate the \"output\" from the \"input\" in \"test\". What you need to do are: Step 1. Find the rule of \"output\" from \"input\" in \"train\" and describe the rule. You can start by converting the numbers (except 0) in the matrix to numbers from 1 to 9 in order and save the correspondence between the numbers before and after the conversion. Then you can try to find the rule. The rule can be like this example: The input matrix is converted to a 3x3 submatrix by converting each element to a 3x3 submatrix. If the element of the input matrix is 0, the submatrix is a 3x3 zero matrix, otherwise the submatrix is the input matrix. This is expanded to an output matrix. The output matrix thus obtained is 3 times the size of the input matrix in both dimensions. (This is just an example, it might not be the rule of this problem) Step 2. Give out the Python program that solves this problem Step 3. Verify that this Python program can type \"input\" and get \"output\" in these three examples in \"train\" in your answer. Show the answer of \"output\" after inputting the \"input.\" If it doesn't work all the way through, go back to step 1 Step 4. Type \"input\" in \"test\" to get \"output\". Step 5. Output the \"output\" of \"test\" in your answer",
+      "input": {
+        "007bbfb7": {
+          "test": [
+            {
+              "input": [[7, 0, 7], [7, 0, 7], [7, 7, 0]]
+            }
+          ],
+          "train": [
+            {
+              "input": [[0, 7, 7], [7, 7, 7], [0, 7, 7]],
+              "output": [[0, 0, 0, 0, 7, 7, 0, 7, 7], [0, 0, 0, 7, 7, 7, 7, 7, 7], [0, 0, 0, 0, 7, 7, 0, 7, 7], [0, 7, 7, 0, 7, 7, 0, 7, 7], [7, 7, 7, 7, 7, 7, 7, 7, 7], [0, 7, 7, 0, 7, 7, 0, 7, 7], [0, 0, 0, 0, 7, 7, 0, 7, 7], [0, 0, 0, 7, 7, 7, 7, 7, 7], [0, 0, 0, 0, 7, 7, 0, 7, 7]]
+            },
+            {
+              "input": [[4, 0, 4], [0, 0, 0], [0, 4, 0]],
+              "output": [[4, 0, 4, 0, 0, 0, 4, 0, 4], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 0, 0, 0, 0, 0, 4, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 4, 0, 4, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 4, 0, 0, 0, 0]]
+            },
+            {
+              "input": [[0, 0, 0], [0, 0, 2], [2, 0, 2]],
+              "output": [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 2, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0, 0, 2], [2, 0, 2, 0, 0, 0, 2, 0, 2]]
+            },
+            {
+              "input": [[6, 6, 0], [6, 0, 0], [0, 6, 6]],
+              "output": [[6, 6, 0, 6, 6, 0, 0, 0, 0], [6, 0, 0, 6, 0, 0, 0, 0, 0], [0, 6, 6, 0, 6, 6, 0, 0, 0], [6, 6, 0, 0, 0, 0, 0, 0, 0], [6, 0, 0, 0, 0, 0, 0, 0, 0], [0, 6, 6, 0, 0, 0, 0, 0, 0], [0, 0, 0, 6, 6, 0, 6, 6, 0], [0, 0, 0, 6, 0, 0, 6, 0, 0], [0, 0, 0, 0, 6, 6, 0, 6, 6]]
+            },
+            {
+              "input": [[2, 2, 2], [0, 0, 0], [0, 2, 2]],
+              "output": [[2, 2, 2, 2, 2, 2, 2, 2, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 2, 2, 0, 2, 2, 0, 2, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 2, 2, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 2, 0, 2, 2]]
+            }
+          ]
+        }
+      },
+      "output": {
+        "007bbfb7": [
+          [
+            [7, 0, 7, 0, 0, 0, 7, 0, 7],
+            [7, 0, 7, 0, 0, 0, 7, 0, 7],
+            [7, 7, 0, 0, 0, 0, 7, 7, 0],
+            [7, 0, 7, 0, 0, 0, 7, 0, 7],
+            [7, 0, 7, 0, 0, 0, 7, 0, 7],
+            [7, 7, 0, 0, 0, 0, 7, 7, 0],
+            [7, 0, 7, 7, 0, 7, 0, 0, 0],
+            [7, 0, 7, 7, 0, 7, 0, 0, 0],
+            [7, 7, 0, 7, 7, 0, 0, 0, 0]
+          ]
+        ]
+      }
+    }
+  }
